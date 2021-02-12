@@ -1,15 +1,15 @@
 import {parser} from "./syntax.grammar"
-import {LRLanguage, LanguageSupport, indentNodeProp, foldNodeProp, foldInside, delimitedIndent} from "@codemirror/language"
-import {styleTags, tags as t} from "@lezer/highlight"
+import {LezerLanguage, LanguageSupport, indentNodeProp, foldNodeProp, delimitedIndent} from "@codemirror/language"
+import {styleTags, tags as t} from "@codemirror/highlight"
 
-export const EXAMPLELanguage = LRLanguage.define({
+export const EXAMPLELanguage = LezerLanguage.define({
   parser: parser.configure({
     props: [
       indentNodeProp.add({
         Application: delimitedIndent({closing: ")", align: false})
       }),
       foldNodeProp.add({
-        Application: foldInside
+        Application(tree) { return {from: tree.from + 1, to: tree.to - 1} }
       }),
       styleTags({
         Identifier: t.variableName,

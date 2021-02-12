@@ -1,5 +1,5 @@
-import typescript from "@rollup/plugin-typescript"
-import {lezer} from "@lezer/generator/rollup"
+import typescript from "@wessberg/rollup-plugin-ts"
+import {lezer} from "lezer-generator/rollup"
 
 export default {
   input: "src/index.ts",
