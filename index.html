@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .cm-scroller {
+            overflow: auto;
+        }
+        .cm-editor {
+            height: 10rem;
+            width: 30rem;
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+<div id="editor-codemirror"></div>
+<script type="module">
+  import {basicSetup} from "codemirror"
+  import {
+      crosshairCursor,
+      drawSelection, dropCursor,
+      EditorView,
+      highlightActiveLine,
+      highlightActiveLineGutter,
+      highlightSpecialChars,
+      keymap,
+      lineNumbers, rectangularSelection
+  } from "@codemirror/view"
+  import {Smalltalk} from "./dist/index.js"
+  import {
+      foldGutter,
+      indentUnit,
+      foldService,
+      indentOnInput,
+      bracketMatching,
+      defaultHighlightStyle, syntaxHighlighting, foldKeymap
+  } from "@codemirror/language";
+  import {defaultKeymap, historyKeymap} from "@codemirror/commands"
+  import {autocompletion, closeBrackets, closeBracketsKeymap, completionKeymap} from "@codemirror/autocomplete"
+
+  const view = new EditorView({
+    doc: "[ \n   4 + 5\n ]",
+    parent: document.getElementById('editor-codemirror'),
+    extensions: [
+        lineNumbers(), // line numbers in the gutter
+        highlightActiveLineGutter(), // highlights the active line in the gutter
+        highlightSpecialChars(),
+        foldGutter(), // creates gutter icons for folding
+        drawSelection(),
+        dropCursor(),
+        indentOnInput(),
+        syntaxHighlighting(defaultHighlightStyle, { fallback: true }),
+        bracketMatching(), // highlights matching brackets when the cursor is on them
+        closeBrackets(), // generate closing bracket when typing the opening bracket
+        autocompletion(), // ??
+        rectangularSelection(),
+        crosshairCursor(),
+        highlightActiveLine(),
+        keymap.of([
+            ...closeBracketsKeymap,
+            ...defaultKeymap,
+            // ...searchKeymap,
+            // ...historyKeymap,
+            ...foldKeymap,
+            ...completionKeymap,
+            // ...lintKeymap
+        ]),
+
+        Smalltalk(),
+        indentUnit.of('     ') // sent a really big indent
+    ]
+  })
+
+</script>
+</body>
+</html>

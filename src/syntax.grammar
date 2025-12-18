@@ -3,24 +3,26 @@
 @skip { space | LineComment }
 
 expression {
+  Number     |
   Identifier |
   String |
   Boolean |
+  Block       { "[" expression* "]" } |
   Application { "(" expression* ")" }
 }
 
 @tokens {
-  Identifier { $[a-zA-Z_\-0-9]+ }
-
+  Number     { @digit+ }
+  Identifier { @asciiLetter $[a-zA-Z_\-0-9]+ }
   String { '"' (!["\\] | "\\" _)* '"' }
 
   Boolean { "#t" | "#f" }
 
-  LineComment { ";" ![\n]* }
+  LineComment { "//" ![\n]* }
 
   space { $[ \t\n\r]+ }
 
   "(" ")"
+  "[" "]"
 }
 
-@detectDelim

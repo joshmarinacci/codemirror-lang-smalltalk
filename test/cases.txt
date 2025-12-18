@@ -39,3 +39,22 @@ Program(Application(
   Application(Identifier, Boolean, Application(
     Identifier, Application(Identifier, String, String, String)))
   Application(Identifier, String)))
+
+# Blocks
+
+[ foo ]
+
+==>
+
+Program(Block(Identifier))
+
+
+# Comments
+
+[ //foo
+ bar
+]
+
+==>
+
+Program(Block(LineComment, Identifier))
