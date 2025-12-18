@@ -17,7 +17,6 @@
 <body>
 <div id="editor-codemirror"></div>
 <script type="module">
-  import {basicSetup} from "codemirror"
   import {
       crosshairCursor,
       drawSelection, dropCursor,
@@ -32,12 +31,11 @@
   import {
       foldGutter,
       indentUnit,
-      foldService,
       indentOnInput,
       bracketMatching,
       defaultHighlightStyle, syntaxHighlighting, foldKeymap
   } from "@codemirror/language";
-  import {defaultKeymap, historyKeymap} from "@codemirror/commands"
+  import {defaultKeymap} from "@codemirror/commands"
   import {autocompletion, closeBrackets, closeBracketsKeymap, completionKeymap} from "@codemirror/autocomplete"
 
   const view = new EditorView({

@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/lang-example.iml" filepath="$PROJECT_DIR$/.idea/lang-example.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/codemirror-smalltalk-language.iml" filepath="$PROJECT_DIR$/.idea/codemirror-smalltalk-language.iml" />
     </modules>
   </component>
 </project>
