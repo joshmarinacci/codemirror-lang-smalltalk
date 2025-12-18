@@ -39,7 +39,10 @@
   import {autocompletion, closeBrackets, closeBracketsKeymap, completionKeymap} from "@codemirror/autocomplete"
 
   const view = new EditorView({
-    doc: "[ \n   4 + 5\n ]",
+doc: `1 to: 5 do: [
+  acc := 4 + 5.
+  Debug print: "acc is " + acc.
+]`,
     parent: document.getElementById('editor-codemirror'),
     extensions: [
         lineNumbers(), // line numbers in the gutter

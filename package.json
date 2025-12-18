@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "description": "Smalltalk language support for CodeMirror",
   "scripts": {
-    "dev": "vite dev",
+    "dev": "npm run prepare && vite dev",
     "test": "npm run prepare && mocha test/test.js",
     "prepare": "rollup -c"
   },
@@ -21,6 +21,7 @@
   },
   "devDependencies": {
     "@codemirror/autocomplete": "^6.20.0",
+    "@codemirror/lang-javascript": "^6.2.4",
     "@codemirror/commands": "^6.10.1",
     "@lezer/generator": "^1.0.0",
     "@lezer/highlight": "^1.0.0",

@@ -1,9 +1,12 @@
 @top Program { expression* }
 
-@skip { space | LineComment }
+@skip { space }
 
 expression {
+  LineComment |
+  Operator   |
   Number     |
+  Keyword    |
   Identifier |
   String |
   Boolean |
@@ -11,12 +14,17 @@ expression {
   Application { "(" expression* ")" }
 }
 
-@tokens {
-  Number     { @digit+ }
-  Identifier { @asciiLetter $[a-zA-Z_\-0-9]+ }
-  String { '"' (!["\\] | "\\" _)* '"' }
 
-  Boolean { "#t" | "#f" }
+@tokens {
+  @precedence { Boolean, Keyword, Identifier, LineComment, Operator }
+
+  Number     { @digit+ }
+  Keyword    { @asciiLetter (@asciiLetter | "_") + ":" }
+  Identifier { @asciiLetter (@asciiLetter | "_") + }
+  String { '"' (!["\\] | "\\" _)* '"' }
+  Operator { "+" | "-" | "*" | "/" | ":="}
+
+  Boolean { "true" | "false" }
 
   LineComment { "//" ![\n]* }
 
@@ -24,5 +32,6 @@ expression {
 
   "(" ")"
   "[" "]"
+
 }
 

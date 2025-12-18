@@ -1,20 +1,29 @@
 # Booleans
 
-#t
-#f
+true
+false
 
 ==>
 
 Program(Boolean, Boolean)
 
+
+# Operators
+
++ - *
+==>
+Program(Operator, Operator, Operator)
+
+
 # Identifiers
 
 one
 Two_Three
+four:
 
 ==>
 
-Program(Identifier, Identifier)
+Program(Identifier, Identifier, Keyword)
 
 # Strings
 
@@ -28,7 +37,7 @@ Program(String, String)
 # Applications
 
 (begin
-  (when #t
+  (when true
     (print (concat "hello" " " "world")))
   (print "DONE"))
 

@@ -14,10 +14,12 @@ export const SmalltalkLanguage = LRLanguage.define({
         Block: foldInside,
       }),
       styleTags({
+        Keyword: t.keyword,
         Identifier: t.variableName,
         Boolean: t.bool,
         String: t.string,
         Number: t.integer,
+        Operator: t.operator,
         LineComment: t.lineComment,
         "[ ]": t.bracket,
         "( )": t.bracket,
@@ -27,7 +29,6 @@ export const SmalltalkLanguage = LRLanguage.define({
   }),
   languageData: {
       closeBrackets: { brackets: ["(", "[", "{", "'", '"', "`"] },
-    //   commentTokens: {line: "//"}
   }
 })
 
