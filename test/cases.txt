@@ -29,10 +29,11 @@ Program(Identifier, Identifier, Keyword)
 
 "hello"
 "one\"\\two"
+'foo'
 
 ==>
 
-Program(String, String)
+Program(String, String, String)
 
 # Applications
 

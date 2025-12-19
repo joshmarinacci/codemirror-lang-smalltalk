@@ -21,7 +21,7 @@ expression {
   Number     { @digit+ }
   Keyword    { @asciiLetter (@asciiLetter | "_") + ":" }
   Identifier { @asciiLetter (@asciiLetter | "_") + }
-  String { '"' (!["\\] | "\\" _)* '"' }
+  String { ('"' (!["\\] | "\\" _)* '"') | ("'" (!['\\] | "\\" _)* "'")  }
   Operator { "+" | "-" | "*" | "/" | ":="}
 
   Boolean { "true" | "false" }
