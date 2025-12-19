@@ -29,6 +29,7 @@ export const SmalltalkLanguage = LRLanguage.define({
   }),
   languageData: {
       closeBrackets: { brackets: ["(", "[", "{", "'", '"', "`"] },
+      commentTokens: { line:"//",  }
   }
 })
 
