@@ -1,6 +1,6 @@
 {
   "name": "codemirror-lang-smalltalk",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Smalltalk language support for CodeMirror",
   "scripts": {
     "dev": "npm run prepare && vite dev",
