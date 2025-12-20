@@ -4,19 +4,20 @@
 
 expression {
   LineComment |
-  Operator   |
-  Number     |
-  Keyword    |
-  Identifier |
-  String |
-  Boolean |
+  Operator    |
+  Number      |
+  Keyword     |
+  Identifier  |
+  String      |
+  Boolean     |
+  Nil         |
   Block       { "[" expression* "]" } |
   Application { "(" expression* ")" }
 }
 
 
 @tokens {
-  @precedence { Boolean, Keyword, Identifier, LineComment, Operator }
+  @precedence { Nil, Boolean, Keyword, Identifier, LineComment, Operator }
 
   Number     { @digit+ }
   Keyword    { @asciiLetter (@asciiLetter | "_") + ":" }
@@ -25,6 +26,7 @@ expression {
   Operator { "+" | "-" | "*" | "/" | ":="}
 
   Boolean { "true" | "false" }
+  Nil { "nil" }
 
   LineComment { "//" ![\n]* }
 

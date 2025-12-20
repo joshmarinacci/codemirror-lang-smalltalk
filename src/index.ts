@@ -17,6 +17,7 @@ export const SmalltalkLanguage = LRLanguage.define({
         Keyword: t.keyword,
         Identifier: t.variableName,
         Boolean: t.bool,
+        Nil: t.bool,
         String: t.string,
         Number: t.integer,
         Operator: t.operator,

@@ -8,6 +8,13 @@ false
 Program(Boolean, Boolean)
 
 
+# Nil
+
+nil
+==>
+Program(Nil)
+
+
 # Operators
 
 + - *
